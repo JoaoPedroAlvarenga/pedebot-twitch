@@ -1,6 +1,6 @@
 {
-  "name": "twotchy",
-  "version": "1.0.0",
+  "name": "pedebot",
+  "version": "0.0.5",
   "description": "",
   "main": "src/index.js",
   "scripts": {
