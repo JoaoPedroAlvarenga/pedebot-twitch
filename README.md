@@ -1,19 +1,17 @@
-# twitch Bot
+# Twitch Bot
 
-A simple bot for twitch
+A simple bot for twitch with [tmi.js](https://github.com/tmijs/tmi.js)
 
 ## .env
 
-| env          |             |
-| ------------ | ----------- |
-| BOT_USERNAME | BOT_NAME    |
-| OAUTH_TOKEN  | oauth:7...  |
-| CHANNEL_NAME | channelName |
+| .env file    | Value                                |
+| ------------ | ------------------------------------ |
+| BOT_USERNAME | bot name                             |
+| OAUTH_TOKEN  | [oauth](https://twitchapps.com/tmi/) |
+| CHANNEL_NAME | channel name                         |
 
-### Doc
+## Documentation
 
-[dev.twitch](https://dev.twitch.tv/docs/irc)
+### [tmi.js](https://github.com/tmijs/tmi.js)
 
-[twitch-bot](https://github.com/kritzware/twitch-bot)
-
-[tmijs](https://github.com/tmijs/tmi.js)
+### [dev.twitch](https://dev.twitch.tv/docs/irc)
