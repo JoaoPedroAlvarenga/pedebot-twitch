@@ -22,7 +22,7 @@
 ## Install
 
 1. Clone the repository
-2. Install modules with `node_modules`
+2. Install modules with `yarn install` or `npm install`
 
 ## Config
 
