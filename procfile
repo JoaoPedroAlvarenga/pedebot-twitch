@@ -1,1 +1,1 @@
-pedebot: node "./src/index.js"
+pedebot: node "./src/bot.js"
