@@ -31,7 +31,7 @@
 
 ```
 BOT_USERNAME=yourBotName
-OAUTH_TOKEN=youtOauth
+OAUTH_TOKEN=yourOauth
 CHANNEL_NAME=yourChannelName
 ```
 
