@@ -4,7 +4,7 @@ config();
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = process.env;
 require("./removeSpecialKey");
 
-const client = new tmi.Client({
+const optionsConfig = {
   options: { debug: true },
   connection: {
     reconnect: true,
@@ -15,7 +15,9 @@ const client = new tmi.Client({
     password: OAUTH_TOKEN
   },
   channels: [CHANNEL_NAME]
-});
+};
+
+const client = new tmi.Client(optionsConfig);
 client.connect();
 
 client.on("message", (channel, tags, message, self) => {
@@ -41,6 +43,7 @@ client.on("message", (channel, tags, message, self) => {
       //for testing only
       client.say(channel, `Ok`);
     },
+
     help() {
       const helpCommands = getFormattedCommands();
       client.say(channel, `Todos os comandos são:  ${helpCommands}`);
@@ -49,35 +52,29 @@ client.on("message", (channel, tags, message, self) => {
     hello() {
       client.say(channel, `@${tags.username}, hello! :D`);
     },
+
     clear() {
       if ("#" + tags.username == channel || tags.mod) {
         client.clear(channel);
       }
     },
+
     mods() {
-      client
-        .mods(channel)
-        .then(data => {
-          console.log(data);
-          for (const mod in data) {
-            client.say(channel, `${parseInt(mod) + 1}: ${data[mod]}`);
-          }
-        })
-        .catch(err => {
-          //
-        });
+      client.mods(channel).then(data => {
+        console.log(data);
+        for (const mod in data) {
+          client.say(channel, `${parseInt(mod) + 1}: ${data[mod]}`);
+        }
+      });
     },
+
     ping() {
-      client
-        .ping()
-        .then(data => {
-          client.say(channel, `Ping: ${data}`);
-        })
-        .catch(err => {
-          //
-        });
+      client.ping().then(data => {
+        client.say(channel, `Ping: ${data}`);
+      });
     }
   };
+
   const specialKey = "!";
 
   let messageLower = message.toLowerCase();
