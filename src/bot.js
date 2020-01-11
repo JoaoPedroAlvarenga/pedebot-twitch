@@ -19,58 +19,23 @@ const optionsConfig = {
 
 const client = new tmi.Client(optionsConfig);
 client.connect();
+client.on("message", onMessageHandler);
+// client.on("message", onMessageViewer);
 
-client.on("message", (channel, tags, message, self) => {
-  function getFormattedCommands() {
-    const closeKey = "]";
-    const openKey = "[";
-    const specialCommandsSize = 2; // /t and /help
-
-    const commandsKeys = Object.keys(commands);
-    const hideSpecialCommands = commandsKeys.slice(specialCommandsSize);
-    const formattedText = hideSpecialCommands.join(` ${closeKey} ${openKey} `);
-    const closeText = `${openKey} ` + formattedText + ` ${closeKey}`;
-    return closeText;
-  }
-
-  if (self) {
-    // Ignore echoed messages.
-    return;
-  }
-
+function onMessageHandler(channel, tags, message, self) {
+  if (self) return; // Ignore messages from the bot
   const commands = {
-    t() {
-      //for testing only
-      client.say(channel, `Ok`);
-    },
-
-    help() {
-      const helpCommands = getFormattedCommands();
-      client.say(channel, `Todos os comandos são:  ${helpCommands}`);
-    },
-
-    hello() {
-      client.say(channel, `@${tags.username}, hello! :D`);
-    },
-
-    clear() {
-      if ("#" + tags.username == channel || tags.mod) {
-        client.clear(channel);
-      }
+    cls() {
+      client.clear(channel);
     },
 
     mods() {
-      client.mods(channel).then(data => {
-        console.log(data);
-        for (const mod in data) {
-          client.say(channel, `${parseInt(mod) + 1}: ${data[mod]}`);
-        }
-      });
+      client.mods(channel).then(data => {});
     },
 
     ping() {
       client.ping().then(data => {
-        client.say(channel, `Ping: ${data}`);
+        client.say("Ping: ", data);
       });
     }
   };
@@ -80,7 +45,10 @@ client.on("message", (channel, tags, message, self) => {
   let messageLower = message.toLowerCase();
   let messagePrepared = messageLower.removeSpecialKey(specialKey);
   const commandFunction = commands[messagePrepared];
+
   if (commandFunction) {
+    // if ("#" + tags.username == channel || tags.mod) {
     commandFunction();
+    // }
   }
-});
+}
