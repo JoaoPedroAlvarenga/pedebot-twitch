@@ -5,8 +5,8 @@
   "main": "src/bot.js",
   "scripts": {
     "start": "node ./src/bot.js",
-    "dev": "nodemon ./src/bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn openChat && nodemon ./src/bot.js",
+    "openChat": "node ./src/openChat.js "
   },
   "repository": {
     "type": "git",
@@ -30,12 +30,13 @@
     "tmi.js": "^1.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
-    "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.0.2",
+    "@commitlint/cli": "^8.3.4",
+    "commitizen": "^4.0.3",
+    "nodemon": "^2.0.2",
     "husky": "^4.0.6",
-    "nodemon": "^2.0.2"
+    "open": "^7.0.0"
   },
   "config": {
     "commitizen": {
