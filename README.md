@@ -39,6 +39,6 @@ CHANNEL_NAME=yourChannelName
 
 ## Documentation
 
-### [tmi.js](https://github.com/tmijs/docs)
+### v1.4.2 [tmi.js](https://github.com/tmijs/docs/blob/gh-pages/_posts/v1.4.2/2019-03-03-Commands.md)
 
 ### [dev.twitch](https://dev.twitch.tv/docs/irc)
