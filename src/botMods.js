@@ -1,17 +1,13 @@
 require("./prototype/removeSpecialKey");
-const client = require("./config/client");
-const configJson = require("../config.json");
-const config = JSON.stringify(configJson);
+const { client } = require("./config/client");
+const { specialKey } = require("../config.json");
+const { CHANNEL_NAME } = process.env;
 
 function botMods(channel, tags, message, self) {
+  const { username, mod } = tags;
   if (self) return; // Ignore messages from the bot
+
   const commands = {
-    t() {
-      console.log("Passou1");
-
-      client.say(channel, "ok");
-    },
-
     cls() {
       client.clear(channel);
     },
@@ -23,17 +19,11 @@ function botMods(channel, tags, message, self) {
     }
   };
 
-  const specialKey = config.specialKey;
-
-  let messageLower = message.toLowerCase();
-  let messagePrepared = messageLower.removeSpecialKey(specialKey);
+  const messageLower = message.toLowerCase();
+  const messagePrepared = messageLower.removeSpecialKey(specialKey);
   const commandFunction = commands[messagePrepared];
 
-  if (commandFunction) {
-    console.log(messagePrepared);
-
-    commandFunction();
-  }
+  if (username === CHANNEL_NAME || mod) commandFunction && commandFunction();
 }
 
-module.exports = botMods;
+module.exports = { botMods };

@@ -1,3 +1,8 @@
 {
+  "commands": {
+    "t": "ok",
+    "twitter": "twitter.com",
+    "instagram": "instagram.com"
+  },
   "specialKey": "!"
 }
