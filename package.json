@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/bot.js",
   "scripts": {
-    "start": "node ./src/bot.js",
+    "start": "node src/bot.js",
     "dev": "yarn openChat && nodemon ./src/bot.js",
     "openChat": "node ./src/openChat.js "
   },

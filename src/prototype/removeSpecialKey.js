@@ -1,5 +1,5 @@
 String.prototype.removeSpecialKey = function(specialKey) {
-  if (this.slice(0, specialKey) === specialKey) {
+  if (this[0] === specialKey) {
     return this.slice(1, this.length);
   }
 };

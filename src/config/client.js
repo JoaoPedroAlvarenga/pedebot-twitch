@@ -3,4 +3,4 @@ const optionsConfig = require("./optionsConfig");
 const client = new tmi.Client(optionsConfig);
 client.connect();
 
-module.exports = client;
+module.exports = { client };
