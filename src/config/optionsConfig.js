@@ -1,5 +1,4 @@
-const { config } = require("dotenv");
-config();
+require("dotenv").config();
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = process.env;
 
 const optionsConfig = {
