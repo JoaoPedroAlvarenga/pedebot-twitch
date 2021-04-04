@@ -1,6 +1,6 @@
 const tmi = require("tmi.js");
-const optionsConfig = require("./optionsConfig");
-const client = new tmi.Client(optionsConfig);
+const botConfig = require("./botConfig");
+const client = new tmi.Client(botConfig);
 client.connect();
 
 module.exports = { client };

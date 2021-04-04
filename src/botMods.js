@@ -23,6 +23,7 @@ function botMods(channel, tags, message, self) {
   const messagePrepared = messageLower.removeSpecialKey(specialKey);
   const commandFunction = commands[messagePrepared];
 
+
   if (username === CHANNEL_NAME || mod) commandFunction && commandFunction();
 }
 

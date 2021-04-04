@@ -7,7 +7,7 @@ config();
   await open(
     `https://www.twitch.tv/popout/${process.env.CHANNEL_NAME}/chat?popout=`,
     {
-      app: ["opera"]
+      app: ["chromium"]
     }
   );
 })();

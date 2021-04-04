@@ -1,8 +1,13 @@
 {
   "commands": {
-    "t": "ok",
-    "twitter": "twitter.com",
-    "instagram": "instagram.com"
+    "t":          ["ok",                                "teste message" ],
+    "twitter":    ["twitter.com",                       "Twitter link"  ],
+    "instagram":  ["instagram.com",                     "Instagram link"],
+    "git":        ["github.com/joaopedroaats",          "Git commands"  ,{
+        "bot":      "github.com/joaopedroaats/pedebot-twitch",
+        "dotfiles": "github.com/joaopedroaats/dotfiles",
+        "dots":     "github.com/joaopedroaats/dotfiles"
+    }]
   },
   "specialKey": "!"
 }
