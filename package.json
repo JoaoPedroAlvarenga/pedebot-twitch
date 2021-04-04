@@ -2,45 +2,30 @@
   "name": "pedebot",
   "version": "0.1.0",
   "description": "",
-  "main": "src/bot.js",
-  "scripts": {
-    "start": "node src/bot.js",
-    "dev": "yarn openChat && nodemon ./src/bot.js",
-    "openChat": "node ./src/openChat.js "
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoaoPedroAlvarenga/twotchy.git"
-  },
   "keywords": [],
   "author": "Pedro Alvarenga",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoaoPedroAlvarenga/twotchy/issues"
-  },
-  "homepage": "https://github.com/JoaoPedroAlvarenga/twotchy#readme",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
+  "main": "src/bot.js",
   "dependencies": {
     "dotenv": "^8.2.0",
     "tmi.js": "^1.5.0"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^8.3.4",
-    "cz-conventional-changelog": "3.0.2",
-    "@commitlint/cli": "^8.3.4",
-    "commitizen": "^4.0.3",
+    "git-commit-msg-linter": "^3.1.0",
     "nodemon": "^2.0.2",
-    "husky": "^4.0.6",
     "open": "^7.0.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "scripts": {
+    "start": "node src/bot.js",
+    "dev": "yarn openWindow && nodemon ./src/bot.js",
+    "openWindow": "node ./src/openWindow.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaopedroaats/pedenot-twitch.git"
+  },
+  "homepage": "https://github.com/joaopedroaats/pedenot-twitch#readme",
+  "bugs": {
+    "url": "https://github.com/joaopedroaats/pedenot-twitch/issues"
   }
 }
